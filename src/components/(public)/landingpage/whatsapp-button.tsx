@@ -14,7 +14,7 @@ export function WhatsAppButton() {
         variant="ghost"
       >
         <Image
-          src="/icons/Whatsapp.svg"
+          src="/icons/wsp.webp"
           alt="Contactar por WhatsApp"
           width={70}
           height={70}
