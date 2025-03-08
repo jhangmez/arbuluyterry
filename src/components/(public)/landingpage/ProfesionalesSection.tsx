@@ -1,5 +1,5 @@
 // components/(public)/landingpage/profesionales.tsx
-import TeamSection from "./TeamSection";
+import TeamSection from "../TeamSection";
 
 const teamMembersData: TeamMember[] = [
   {
@@ -53,11 +53,12 @@ interface TeamMember {
   bio: string;
 }
 
-export default function Profesionales() {
+export default function ProfesionalesSection() {
   return (
     <div className="container mx-auto px-4 py-10 font-play">
-      <h1 className="text-3xl font-bold text-center mb-2">Equipo Técnico</h1>
-      <div className="border-t border-primary w-24 mx-auto mb-8"></div>
+      <h1 className="text-2xl font-bold sm:text-3xl md:text-4xl lg:text-5xl text-center mb-2">
+        Equipo Técnico
+      </h1>
       <h3 className="text-xl text-center mb-8">Conozca a Nuestros Expertos</h3>
       <TeamSection
         teamMembers={teamMembersData}
