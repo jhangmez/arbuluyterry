@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, ChevronDown, Facebook } from "lucide-react"; // Import Facebook icon
+import { Menu, ChevronDown, Facebook } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -13,9 +13,8 @@ import {
 } from "@/components/ui/sheet";
 import Image from "next/image";
 import { useMediaQuery } from "@/hooks/use-media-query";
-import { toast } from "sonner"; // Import toast from sonner
+import { toast } from "sonner";
 
-// Estructura de navItems con submenús
 const navItems = [
   { name: "Nosotros", href: "/nosotros" },
   {
@@ -28,12 +27,11 @@ const navItems = [
   },
   { name: "Proyectos", href: "/proyectos" },
   { name: "Equipo", href: "/equipo" },
-  { name: "Contacto", href: "/contacto" },
 ];
 
 // --- TopBar Component ---
-function TopBar() {
-  const isSm = useMediaQuery("(max-width: 640px)"); // Check for sm breakpoint
+function TopBar({ isScrolled }: { isScrolled: boolean }) {
+  const isSm = useMediaQuery("(max-width: 640px)");
   const [isCopied, setIsCopied] = useState(false);
 
   const copyToClipboard = (text: string, type: "number" | "email") => {
@@ -44,7 +42,7 @@ function TopBar() {
         setIsCopied(true);
         const message = type === "number" ? "Número copiado" : "Correo copiado";
         toast.success(message, {
-          duration: 2000, // Set the duration in milliseconds (e.g., 2000ms = 2 seconds)
+          duration: 2000,
         });
         setTimeout(() => {
           setIsCopied(false);
@@ -57,9 +55,12 @@ function TopBar() {
   };
 
   return (
-    <div className="bg-crema py-2 px-4">
+    <div
+      className={`bg-crema py-2 px-4 transition-all duration-300 ${
+        isScrolled ? "-translate-y-full" : "translate-y-0"
+      }`}
+    >
       <div className="container mx-auto flex items-center justify-between">
-        {/* Left (Facebook) */}
         <div className="flex items-center">
           <Link
             href="https://www.facebook.com"
@@ -69,8 +70,6 @@ function TopBar() {
             <Facebook className="h-6 w-6 text-gray-600 hover:text-blue-500" />
           </Link>
         </div>
-
-        {/* Right (Number and Email) / Center (Number) on sm */}
         <div
           className={
             isSm
@@ -111,11 +110,162 @@ function TopBar() {
   );
 }
 
-// --- Header Component (Modified) ---
-export function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
+// --- BottomHeader Component ---
+function BottomHeader() {
   const [openSubMenu, setOpenSubMenu] = useState<string | null>(null);
   const isDesktop = useMediaQuery("(min-width: 768px)");
+
+  return (
+    <div className="container mx-auto flex h-32 items-center justify-between px-4">
+      <div className="flex items-center">
+        <Link
+          href="/"
+          className="text-2xl font-bold flex-row flex items-center justify-center gap-2"
+        >
+          <Image
+            src="/images/arbuluyterry.webp"
+            width={100}
+            height={100}
+            alt="Logo de arbuluyterry"
+            priority
+          />
+        </Link>
+      </div>
+
+      {/* Navegación para Desktop */}
+      <nav className="hidden md:flex items-center space-x-5">
+        {navItems.map((item, index) => (
+          <div key={`${index}-${item.name}`} className="relative group">
+            {item.subItems ? (
+              <>
+                <Button
+                  className="font-medium flex items-center bg-foreground/10"
+                  onMouseEnter={() => setOpenSubMenu(item.name)}
+                  onMouseLeave={() => setOpenSubMenu(null)}
+                >
+                  {item.name}
+                  <ChevronDown width={16} className="ml-1" />
+                </Button>
+                <div
+                  className={`absolute left-1/2 -translate-x-1/2  bg-white border rounded-md shadow-lg  z-50
+                                ${
+                                  openSubMenu === item.name && isDesktop
+                                    ? "block animate-fadeIn"
+                                    : "hidden animate-fadeOut"
+                                }`}
+                  onMouseEnter={() => setOpenSubMenu(item.name)}
+                  onMouseLeave={() => setOpenSubMenu(null)}
+                >
+                  {item.subItems.map((subItem, subIndex) => (
+                    <Link
+                      key={`${index}-${subIndex}-${subItem.name}`}
+                      href={subItem.href}
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
+                    >
+                      {subItem.name}
+                    </Link>
+                  ))}
+                </div>
+              </>
+            ) : (
+              <Button asChild className="bg-foreground/10">
+                <Link href={item.href} className="text-lg font-medium">
+                  {item.name}
+                </Link>
+              </Button>
+            )}
+          </div>
+        ))}
+        <Button asChild className="font-semibold">
+          <Link target="_blank" href="https://wa.me/+51979949008">
+            Contáctanos
+          </Link>
+        </Button>
+      </nav>
+
+      {/* Navegación para Móvil */}
+      <div className="flex md:hidden gap-2">
+        <Button asChild className="font-semibold">
+          <Link target="_blank" href="https://wa.me/+51979949008">
+            Contáctanos
+          </Link>
+        </Button>
+        <Sheet aria-describedby="Es un boton">
+          <SheetTrigger aria-describedby="Es un boton" asChild>
+            <Button variant="outline" size="icon">
+              <Menu className="h-6 w-6" />
+              <span className="sr-only">Toggle menu</span>
+            </Button>
+          </SheetTrigger>
+          <SheetTitle className="sr-only">
+            Es un bonito sheet trigger
+          </SheetTitle>
+          <SheetDescription className="sr-only">
+            Es un bonito trigger
+          </SheetDescription>
+          <SheetContent aria-describedby="Es un boton" side="left">
+            <nav className="flex flex-col space-y-4">
+              {navItems.map((item, index) => (
+                <div key={`${index}-${item.name}`}>
+                  {item.subItems ? (
+                    <>
+                      <div className="flex items-center justify-start gap-2">
+                        <Button
+                          variant="ghost"
+                          className="text-lg font-medium font-titulo text-left p-0"
+                          onClick={() =>
+                            setOpenSubMenu(
+                              openSubMenu === item.name ? null : item.name
+                            )
+                          }
+                        >
+                          {item.name}
+                          <ChevronDown width={16} />
+                        </Button>
+                      </div>
+                      {openSubMenu === item.name && (
+                        <div className="ml-4 space-y-3 py-2">
+                          {item.subItems.map((subItem, subIndex) => (
+                            <Link
+                              key={`${index}-${subIndex}-${subItem.name}`}
+                              href={subItem.href}
+                              className="block text-base font-medium font-titulo"
+                            >
+                              {subItem.name}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className="text-lg font-medium font-titulo"
+                    >
+                      {item.name}
+                    </Link>
+                  )}
+                </div>
+              ))}
+
+              <Link
+                target="_blank"
+                href="https://wa.me/+51979949008"
+                className="text-lg font-medium font-titulo"
+              >
+                Contáctanos
+              </Link>
+            </nav>
+          </SheetContent>
+        </Sheet>
+      </div>
+    </div>
+  );
+}
+
+// --- Header Component (Wrapper) ---
+export function Header() {
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const updateScrollDirection = () => {
@@ -127,155 +277,12 @@ export function Header() {
       window.removeEventListener("scroll", updateScrollDirection);
     };
   }, []);
-
   return (
-    <>
-      <TopBar /> {/* Add the TopBar here */}
-      <header
-        className={`sticky top-0 z-50 w-full bg-gradient-to-t from-transparent to-primary/15 transition-all duration-300 font-titulo ${
-          isScrolled ? "-translate-y-full" : "translate-y-0"
-        }`}
-      >
-        <div className="container mx-auto flex h-32 items-center justify-between px-4">
-          <div className="flex items-center">
-            <Link
-              href="/"
-              className="text-2xl font-bold flex-row flex items-center justify-center gap-2"
-            >
-              <Image
-                src="/images/arbuluyterry.webp"
-                width={100}
-                height={100}
-                alt="Logo de arbuluyterry"
-                priority
-              />
-            </Link>
-          </div>
-
-          {/* Navegación para Desktop */}
-          <nav className="hidden md:flex items-center space-x-5">
-            {navItems.map((item, index) => (
-              <div key={`${index}-${item.name}`} className="relative group">
-                {item.subItems ? (
-                  <>
-                    <Button
-                      variant="ghost"
-                      className="font-medium flex items-center"
-                      onMouseEnter={() => setOpenSubMenu(item.name)}
-                      onMouseLeave={() => setOpenSubMenu(null)}
-                    >
-                      {item.name}
-                      <ChevronDown width={16} className="ml-1" />
-                    </Button>
-                    <div
-                      className={`absolute left-1/2 -translate-x-1/2  bg-white border rounded-md shadow-lg  z-50
-                                ${
-                                  openSubMenu === item.name && isDesktop
-                                    ? "block animate-fadeIn"
-                                    : "hidden animate-fadeOut"
-                                }`}
-                      onMouseEnter={() => setOpenSubMenu(item.name)}
-                      onMouseLeave={() => setOpenSubMenu(null)}
-                    >
-                      {item.subItems.map((subItem, subIndex) => (
-                        <Link
-                          key={`${index}-${subIndex}-${subItem.name}`}
-                          href={subItem.href}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
-                        >
-                          {subItem.name}
-                        </Link>
-                      ))}
-                    </div>
-                  </>
-                ) : (
-                  <Button asChild variant="ghost">
-                    <Link href={item.href} className="text-lg font-medium">
-                      {item.name}
-                    </Link>
-                  </Button>
-                )}
-              </div>
-            ))}
-            <Button asChild>
-              <Link target="_blank" href="https://wa.me/+51979949008">
-                Contáctanos
-              </Link>
-            </Button>
-          </nav>
-
-          {/* Navegación para Móvil */}
-          <div className="flex md:hidden">
-            <Sheet aria-describedby="Es un boton">
-              <SheetTrigger aria-describedby="Es un boton" asChild>
-                <Button variant="outline" size="icon">
-                  <Menu className="h-6 w-6" />
-                  <span className="sr-only">Toggle menu</span>
-                </Button>
-              </SheetTrigger>
-              <SheetTitle className="sr-only">
-                Es un bonito sheet trigger
-              </SheetTitle>
-              <SheetDescription className="sr-only">
-                Es un bonito trigger
-              </SheetDescription>
-              <SheetContent aria-describedby="Es un boton" side="left">
-                <nav className="flex flex-col space-y-4">
-                  {navItems.map((item, index) => (
-                    <div key={`${index}-${item.name}`}>
-                      {item.subItems ? (
-                        <>
-                          <div className="flex items-center justify-start gap-2">
-                            <button
-                              className="text-lg font-medium font-titulo text-left"
-                              onClick={() =>
-                                setOpenSubMenu(
-                                  openSubMenu === item.name ? null : item.name
-                                )
-                              }
-                            >
-                              {item.name}
-                            </button>
-                            <ChevronDown width={16} />
-                          </div>
-                          {openSubMenu === item.name && (
-                            <div className="ml-4 space-y-2">
-                              {item.subItems.map((subItem, subIndex) => (
-                                <Link
-                                  key={`${index}-${subIndex}-${subItem.name}`}
-                                  href={subItem.href}
-                                  className="block text-base font-medium font-titulo"
-                                >
-                                  {subItem.name}
-                                </Link>
-                              ))}
-                            </div>
-                          )}
-                        </>
-                      ) : (
-                        <Link
-                          href={item.href}
-                          className="text-lg font-medium font-titulo"
-                        >
-                          {item.name}
-                        </Link>
-                      )}
-                    </div>
-                  ))}
-
-                  <Link
-                    target="_blank"
-                    href="https://wa.me/+51979949008"
-                    className="text-lg font-medium font-titulo"
-                  >
-                    Contáctanos
-                  </Link>
-                </nav>
-              </SheetContent>
-            </Sheet>
-          </div>
-        </div>
-      </header>
-    </>
+    <header
+      className={`absolute top-0 z-50 w-full bg-gradient-to-t from-transparent to-primary/15  font-titulo`}
+    >
+      <TopBar isScrolled={isScrolled} />
+      <BottomHeader />
+    </header>
   );
 }

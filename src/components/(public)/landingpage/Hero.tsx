@@ -1,4 +1,4 @@
-// components/(public)/landingpage/Hero.tsx (No changes needed here)
+// components/(public)/landingpage/Hero.tsx
 "use client";
 
 import Link from "next/link";
@@ -22,34 +22,39 @@ export function Hero() {
 
   const slides = [
     {
-      text: "COMPROMETIDOS CONTIGO Y CON EL MEDIO AMBIENTE",
+      title: "Comprometidos con el Desarrollo",
+      subtitle: "Urbano y Ambiental Sostenible",
       imageUrl: "/images/hero/peru1.webp",
-      buttonText: "Solicitar Servicios",
+      buttonText: "Nuestros Servicios",
       buttonLink: "/servicios",
     },
     {
-      text: "Texto del Slide 2",
+      title: "Especialistas en Estudios",
+      subtitle: "De Impacto Ambiental",
       imageUrl: "/images/hero/peru2.webp",
-      buttonText: "Ver Proyectos",
-      buttonLink: "/proyectos",
+      buttonText: "Ver Estudios",
+      buttonLink: "/servicios#impacto-ambiental",
     },
     {
-      text: "Texto del Slide 3",
+      title: "Planificación Urbana",
+      subtitle: "Y Proyectos de Infraestructura",
       imageUrl: "/images/hero/peru3.webp",
-      buttonText: "Ver Proyectos",
-      buttonLink: "/proyectos",
+      buttonText: "Ver Proyectos Urbanos",
+      buttonLink: "/proyectos#urbano",
     },
     {
-      text: "Texto del Slide 4",
+      title: "Más de 25 Años",
+      subtitle: "De Experiencia en el Sector",
       imageUrl: "/images/hero/peru4.webp",
-      buttonText: "Ver Proyectos",
-      buttonLink: "/proyectos",
+      buttonText: "Conózcanos",
+      buttonLink: "/nosotros",
     },
     {
-      text: "Texto del Slide 5",
+      title: "Consultoría Integral",
+      subtitle: "Para un Futuro Sostenible",
       imageUrl: "/images/hero/peru5.webp",
-      buttonText: "Ver Proyectos",
-      buttonLink: "/proyectos",
+      buttonText: "Contáctenos",
+      buttonLink: "/contacto",
     },
   ];
 
@@ -70,13 +75,16 @@ export function Hero() {
                 className="object-cover"
                 priority={index === 0}
               />
-              <div className="absolute inset-0 bg-black/10" />
+              <div className="absolute inset-0 bg-black/30" />
             </div>
 
-            <div className="relative z-10 flex flex-col items-center justify-center px-4 text-center h-full">
-              <h1 className="text-shadow-lg text-3xl font-bold text-white sm:text-4xl md:text-5xl lg:text-6xl">
-                {slide.text}
+            <div className="relative z-10 pt-10 flex flex-col items-center justify-center px-4 text-center h-full">
+              <h1 className="text-shadow-lg text-3xl font-bold text-white sm:text-4xl md:text-5xl lg:text-6xl capitalize">
+                {slide.title}
               </h1>
+              <h2 className="text-shadow-md text-xl text-white sm:text-2xl md:text-3xl mt-2">
+                {slide.subtitle}
+              </h2>
               <div className="mt-8">
                 <Button asChild size="lg">
                   <Link href={slide.buttonLink}>{slide.buttonText}</Link>
