@@ -1,6 +1,11 @@
+"use client";
 import Link from "next/link";
-import { Facebook } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
+import { FaFacebook } from "react-icons/fa";
 import Image from "next/image";
+import { toast } from "sonner";
+import { useState } from "react";
+import { FaWhatsapp } from "react-icons/fa";
 
 interface FooterProps {
   color?: string;
@@ -27,6 +32,24 @@ export function Footer({ color }: FooterProps) {
     ? { backgroundColor: color }
     : "bg-primary";
 
+  const [isCopied, setIsCopied] = useState(false);
+
+  const copyToClipboard = (text: string, type: "number" | "email") => {
+    if (isCopied) return;
+    navigator.clipboard
+      .writeText(text)
+      .then(() => {
+        setIsCopied(true);
+        const message = type === "number" ? "Número copiado" : "Correo copiado";
+        toast.success(message, { duration: 2000 });
+        setTimeout(() => setIsCopied(false), 2000);
+      })
+      .catch((err) => {
+        console.error("Failed to copy: ", err);
+        toast.error("Error al copiar");
+      });
+  };
+
   return (
     <footer
       className={`text-primary-foreground ${
@@ -35,8 +58,9 @@ export function Footer({ color }: FooterProps) {
       style={typeof footerBgClass === "object" ? footerBgClass : undefined}
     >
       <div className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4 font-play">
-          <div>
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5 font-play">
+          {/* Logo and Social Media */}
+          <div className="lg:col-span-1">
             <Link
               href="/"
               className="text-2xl font-bold font-play flex-row flex items-center  gap-2"
@@ -48,23 +72,20 @@ export function Footer({ color }: FooterProps) {
                 alt="Logo de arbuluyterry"
               />
             </Link>
-            <p className="mt-4 text-sm">
-              Síguenos en nuestras redes sociales para estar al día con las
-              últimas noticias y actualizaciones.
-            </p>
+            <p className="mt-4 text-sm">Síguenos en nuestras redes sociales:</p>
             <div className="mt-4 flex space-x-4">
               <Link
                 href="https://www.facebook.com/profile.php?id=61570478128979"
                 className="hover:text-amarillo"
                 target="_blank"
               >
-                <Facebook className="h-6 w-6" />
+                <FaFacebook className="h-6 w-6" />
               </Link>
             </div>
           </div>
 
-          {/* Sección "Páginas" -  Estructura Principal */}
-          <div>
+          {/* Sección "Páginas" */}
+          <div className="lg:col-span-1">
             <h3 className="text-lg font-semibold font-play select-none text-amarillo">
               Páginas
             </h3>
@@ -82,8 +103,8 @@ export function Footer({ color }: FooterProps) {
             </ul>
           </div>
 
-          {/* Sección "Servicios" -  Submenú */}
-          <div>
+          {/* Sección "Servicios" */}
+          <div className="lg:col-span-1">
             <h3 className="text-lg font-semibold font-play select-none text-amarillo">
               Servicios
             </h3>
@@ -103,31 +124,49 @@ export function Footer({ color }: FooterProps) {
             </ul>
           </div>
 
-          {/* Sección Contacto */}
-          <div>
+          {/* Contact Information (2 Columns on lg and xl) */}
+          <div className="lg:col-span-2">
             <h3 className="text-lg font-semibold font-play select-none text-amarillo">
               Contacto
             </h3>
-            <ul className="mt-4 space-y-2">
-              <li>
+            <div className="mt-4 space-y-3">
+              {/* Phone Number */}
+              <div className="flex items-center gap-2">
+                <Phone className="h-5 w-5" />
+                <button
+                  onClick={() => copyToClipboard("+51979949008", "number")}
+                  className="text-sm hover:text-amarillo"
+                >
+                  +51 979949008
+                </button>
+              </div>
+
+              {/* Email Address */}
+              <div className="flex items-center gap-2">
+                <Mail className="h-5 w-5" />
+                <button
+                  onClick={() =>
+                    copyToClipboard("mterryra@hotmail.com", "email")
+                  }
+                  className="text-sm hover:text-amarillo"
+                >
+                  mterryra@hotmail.com
+                </button>
+              </div>
+
+              {/* WhatsApp */}
+              <div className="flex items-center gap-2">
                 <Link
                   href="https://wa.me/+51979949008"
-                  className="text-sm hover:text-amarillo"
+                  className="text-sm hover:text-amarillo flex items-center"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Consultas
+                  <FaWhatsapp className="h-5 w-5 mr-2" />
+                  <span>WhatsApp</span>
                 </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contacto#form" // Enlace directo a la página de contacto
-                  className="text-sm hover:text-amarillo"
-                >
-                  Formulario de Contacto
-                </Link>
-              </li>
-            </ul>
+              </div>
+            </div>
           </div>
         </div>
 

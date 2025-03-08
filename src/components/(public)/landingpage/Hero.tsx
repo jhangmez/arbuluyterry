@@ -25,7 +25,7 @@ export function Hero() {
       title: "Comprometidos con el Desarrollo Sostenible",
       subtitle:
         "Impulsamos proyectos urbanos y ambientales que respetan el entorno y mejoran la calidad de vida en Perú.",
-      imageUrl: "/images/hero/peru1.webp",
+      imageUrl: "/images/EDIFICIOEMPRESARIALSAN-PEDRO-CHICLAYO.webp",
       buttonText: "Nuestros Servicios",
       buttonLink: "/servicios",
     },
@@ -33,7 +33,8 @@ export function Hero() {
       title: "Expertos en Estudios de Impacto Ambiental",
       subtitle:
         "Evaluamos y mitigamos los impactos ambientales de tus proyectos, garantizando el cumplimiento normativo y la protección del medio ambiente.",
-      imageUrl: "/images/hero/peru2.webp",
+      imageUrl:
+        "/images/Estudio-de-Impacto-Ambiental-del-PROYECTO-MEJORAMIENTO-DE-PISTAS-Y-VEREDAS-EN-LA-LOCALIDAD-DE-AYABAC.webp",
       buttonText: "Ver Estudios",
       buttonLink: "/servicios#impacto-ambiental",
     },
@@ -41,7 +42,8 @@ export function Hero() {
       title: "Líderes en Planificación Urbana Estratégica",
       subtitle:
         "Diseñamos planes de desarrollo urbano integrales, considerando la infraestructura, el medio ambiente y las necesidades de la comunidad.",
-      imageUrl: "/images/hero/peru3.webp",
+      imageUrl:
+        "/images/HABILITACION-URBANA-DE-LA-EMPRESA-AGROINDUSTRIAL-POMALCA-S.A.A.webp",
       buttonText: "Ver Proyectos Urbanos",
       buttonLink: "/proyectos#urbano",
     },
@@ -49,7 +51,7 @@ export function Hero() {
       title: "Más de 25 Años de Trayectoria",
       subtitle:
         "Nuestra experiencia y conocimiento técnico nos avalan como una empresa confiable y líder en el sector de la consultoría ambiental y urbana.",
-      imageUrl: "/images/hero/peru4.webp",
+      imageUrl: "/images/BAGUA-AMAZONAS.webp",
       buttonText: "Conózcanos",
       buttonLink: "/nosotros",
     },
@@ -57,7 +59,7 @@ export function Hero() {
       title: "Consultoría Integral para un Futuro Mejor",
       subtitle:
         "Ofrecemos soluciones personalizadas y eficientes para cada proyecto, desde la concepción hasta la ejecución, promoviendo la sostenibilidad.",
-      imageUrl: "/images/hero/peru5.webp",
+      imageUrl: "/images/CIUDAD-LAMBAYEQUE.webp",
       buttonText: "Contáctenos",
       buttonLink: "/contacto",
     },
@@ -83,7 +85,7 @@ export function Hero() {
               <div className="absolute inset-0 bg-black/30" />
             </div>
 
-            <div className="relative z-10 pt-10 flex flex-col items-center justify-center px-48 text-center h-full font-play">
+            <div className="relative z-10 pt-28 flex flex-col items-center justify-center lg:px-48 px-4 text-center h-full font-play">
               <h1 className="text-shadow-lg text-2xl font-bold text-white sm:text-3xl md:text-4xl lg:text-5xl capitalize">
                 {slide.title}
               </h1>

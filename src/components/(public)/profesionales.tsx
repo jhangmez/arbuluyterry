@@ -1,8 +1,5 @@
-// pages/equipo.tsx
-import { Header } from "@/components/(public)/header";
-import { Footer } from "@/components/(public)/footer";
-import { WhatsAppButton } from "@/components/(public)/landingpage/whatsapp-button";
-import TeamSection from "@/components/(public)/TeamSection"; // Correct import path
+// components/(public)/landingpage/profesionales.tsx
+import TeamSection from "./TeamSection";
 
 const teamMembersData: TeamMember[] = [
   {
@@ -48,30 +45,25 @@ const teamMembersData: TeamMember[] = [
     bio: "Experiencia en planificación social, planeamiento estratégico local y estudios ambientales.",
   },
 ];
+
 interface TeamMember {
   name: string;
   title: string;
   imageUrl: string;
   bio: string;
 }
-export default function Equipo() {
+
+export default function Profesionales() {
   return (
-    <section className="flex min-h-screen flex-col">
-      <Header />
-      <main className="flex-1 py-10">
-        <div className="container mx-auto px-4 font-play">
-          <h1 className="text-3xl font-bold text-center mb-2">
-            Equipo Técnico
-          </h1>
-          <div className="border-t border-primary w-24 mx-auto mb-8"></div>
-          <h3 className="text-xl text-center mb-8">
-            Conozca a Nuestros Expertos
-          </h3>
-          <TeamSection teamMembers={teamMembersData} showButton={false} />
-        </div>
-      </main>
-      <Footer />
-      <WhatsAppButton />
-    </section>
+    <div className="container mx-auto px-4 py-10 font-play">
+      <h1 className="text-3xl font-bold text-center mb-2">Equipo Técnico</h1>
+      <div className="border-t border-primary w-24 mx-auto mb-8"></div>
+      <h3 className="text-xl text-center mb-8">Conozca a Nuestros Expertos</h3>
+      <TeamSection
+        teamMembers={teamMembersData}
+        maxMembersToShow={2}
+        showButton={true}
+      />
+    </div>
   );
 }

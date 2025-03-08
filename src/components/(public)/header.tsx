@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, ChevronDown, Facebook } from "lucide-react";
+import { Menu, ChevronDown } from "lucide-react";
+import { FaFacebook } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -67,7 +68,7 @@ function TopBar({ isScrolled }: { isScrolled: boolean }) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Facebook className="h-6 w-6 text-gray-600 hover:text-blue-500" />
+            <FaFacebook className="h-6 w-6 text-gray-600 hover:text-blue-500" />
           </Link>
         </div>
         <div
@@ -111,7 +112,7 @@ function TopBar({ isScrolled }: { isScrolled: boolean }) {
 }
 
 // --- BottomHeader Component ---
-function BottomHeader() {
+function BottomHeader({ relative }: { relative?: boolean }) {
   const [openSubMenu, setOpenSubMenu] = useState<string | null>(null);
   const isDesktop = useMediaQuery("(min-width: 768px)");
 
@@ -139,9 +140,14 @@ function BottomHeader() {
             {item.subItems ? (
               <>
                 <Button
-                  className="font-medium flex items-center bg-foreground/10"
                   onMouseEnter={() => setOpenSubMenu(item.name)}
                   onMouseLeave={() => setOpenSubMenu(null)}
+                  className={
+                    relative
+                      ? "font-medium flex items-center "
+                      : "bg-foreground/10"
+                  } // Condición para la clase
+                  variant={!relative ? undefined : "ghost"} // Condición para la variante
                 >
                   {item.name}
                   <ChevronDown width={16} className="ml-1" />
@@ -168,7 +174,11 @@ function BottomHeader() {
                 </div>
               </>
             ) : (
-              <Button asChild className="bg-foreground/10">
+              <Button
+                asChild
+                className={relative ? "" : "bg-foreground/10"} // Condición para la clase
+                variant={!relative ? undefined : "ghost"} // Condición para la variante
+              >
                 <Link href={item.href} className="text-lg font-medium">
                   {item.name}
                 </Link>
@@ -264,7 +274,7 @@ function BottomHeader() {
 }
 
 // --- Header Component (Wrapper) ---
-export function Header() {
+export function Header({ relative = true }: { relative?: boolean }) {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -279,10 +289,12 @@ export function Header() {
   }, []);
   return (
     <header
-      className={`absolute top-0 z-50 w-full bg-gradient-to-t from-transparent to-primary/15  font-play`}
+      className={`z-50 w-full bg-gradient-to-t from-transparent to-primary/35 font-play ${
+        relative ? "" : "absolute top-0"
+      }`}
     >
       <TopBar isScrolled={isScrolled} />
-      <BottomHeader />
+      <BottomHeader relative={relative} />
     </header>
   );
 }
