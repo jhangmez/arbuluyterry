@@ -4,6 +4,7 @@ import { Footer } from "@/components/(public)/footer";
 import { WhatsAppButton } from "@/components/(public)/landingpage/whatsapp-button";
 import { ProyectosSection } from "@/components/(public)/landingpage/proyectos";
 import Profesionales from "@/components/(public)/profesionales";
+import CtaSection from "@/components/(public)/landingpage/CtaSection";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       </main>
       <Profesionales />
       <ProyectosSection />
+      <CtaSection />
       <Footer />
       <WhatsAppButton />
     </section>
