@@ -3,6 +3,9 @@ import { fontTitulo, fontCuerpo } from "./fonts";
 const description = "Construyendo el futuro";
 const title = `Arbulú & Terry S.A.C. | ${description}`;
 const imageUrl = `https://vrf137hlqv.ufs.sh/f/YfEXHleiA93z2N9Ftq40dbcg8iQq41HFJRsnN6vomB9l7D3V`;
+import { Toaster } from "@/components/ui/sonner";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export const metadata = {
   title,
@@ -46,6 +49,7 @@ export default function RootLayout({
       <body>
         <noscript>Página realizada por Jhan Gómez P. @jhangmez</noscript>
         {children}
+        <Toaster />
       </body>
     </html>
   );

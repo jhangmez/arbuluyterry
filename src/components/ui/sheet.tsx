@@ -109,6 +109,7 @@ const SheetTitle = React.forwardRef<
   <SheetPrimitive.Title
     ref={ref}
     className={cn("text-lg font-semibold text-foreground", className)}
+    aria-describedby="Es un titulo"
     {...props}
   />
 ));
