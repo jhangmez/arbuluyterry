@@ -1,5 +1,5 @@
 import "./globals.css";
-import { fontTitulo, fontCuerpo } from "./fonts";
+import { fontPlay } from "./fonts";
 const description = "Construyendo el futuro";
 const title = `Arbulú & Terry S.A.C. | ${description}`;
 const imageUrl = `https://vrf137hlqv.ufs.sh/f/YfEXHleiA93z2N9Ftq40dbcg8iQq41HFJRsnN6vomB9l7D3V`;
@@ -33,7 +33,7 @@ export default function RootLayout({
     <html
       lang="es"
       suppressHydrationWarning
-      className={`${fontTitulo.variable} ${fontCuerpo.variable}`}
+      className={`${fontPlay.variable} `}
     >
       <head>
         <meta charSet="UTF-8" />

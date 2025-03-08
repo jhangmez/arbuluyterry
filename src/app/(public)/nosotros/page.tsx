@@ -8,7 +8,7 @@ export default function Nosotros() {
       <Header />
       <main className="flex-1">
         <div>
-          <h2 className="w-full py-10 bg-crema font-titulo font-medium text-xl">
+          <h2 className="w-full py-10 bg-crema font-play font-medium text-xl">
             Nuestra organización
           </h2>
           <p>
@@ -27,7 +27,7 @@ export default function Nosotros() {
           </p>
         </div>
         <div>
-          <h2 className="w-full py-10 bg-crema font-titulo font-medium text-xl">
+          <h2 className="w-full py-10 bg-crema font-play font-medium text-xl">
             Misión y Visión
           </h2>
           <h3>Misión</h3>
@@ -48,7 +48,7 @@ export default function Nosotros() {
           </p>
         </div>
         <div className="prose mx-auto ">
-          <h2 className="w-full py-10 bg-crema font-titulo font-medium text-xl">
+          <h2 className="w-full py-10 bg-crema font-play font-medium text-xl">
             Campos en la Actividad
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

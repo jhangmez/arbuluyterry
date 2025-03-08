@@ -1,33 +1,21 @@
 // fonts.ts
 import localFont from 'next/font/local'
 
-// Font-titulo (STIXTwoText)
-export const fontTitulo = localFont({
+// Font Platypi (reemplaza fontTitulo y fontCuerpo)
+export const fontPlay = localFont({
   src: [
     {
-      path: '../../public/fonts/STIXTwoText-VariableFont_wght.ttf',
-      weight: '400 700', //  Ajusta el rango si es necesario, según la fuente variable.
+      path: '../../public/fonts/Platypi-VariableFont_wght.ttf',
+      weight: '400 700', //  Ajusta si el rango es diferente
       style: 'normal'
     },
     {
-      path: '../../public/fonts/STIXTwoText-Italic-VariableFont_wght.ttf',
-      weight: '400 700', // Ajusta el rango si es necesario, según la fuente variable.
+      path: '../../public/fonts/Platypi-Italic-VariableFont_wght.ttf',
+      weight: '400 700', // Ajusta si el rango es diferente
       style: 'italic'
     }
   ],
-  variable: '--font-titulo',
-  display: 'swap'
-})
-
-// Font-cuerpo (Outfit)
-export const fontCuerpo = localFont({
-  src: [
-    {
-      path: '../../public/fonts/Outfit-VariableFont_wght.ttf',
-      weight: '100 900', // Outfit es una fuente variable, cubre todo el rango.
-      style: 'normal'
-    }
-  ],
-  variable: '--font-cuerpo',
-  display: 'swap'
+  variable: '--font-play',  // Cambiado a --font-play
+  display: 'swap',
+  preload: true, // buena practica para mejor performance
 })

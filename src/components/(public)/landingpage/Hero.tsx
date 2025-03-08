@@ -22,36 +22,41 @@ export function Hero() {
 
   const slides = [
     {
-      title: "Comprometidos con el Desarrollo",
-      subtitle: "Urbano y Ambiental Sostenible",
+      title: "Comprometidos con el Desarrollo Sostenible",
+      subtitle:
+        "Impulsamos proyectos urbanos y ambientales que respetan el entorno y mejoran la calidad de vida en Perú.",
       imageUrl: "/images/hero/peru1.webp",
       buttonText: "Nuestros Servicios",
       buttonLink: "/servicios",
     },
     {
-      title: "Especialistas en Estudios",
-      subtitle: "De Impacto Ambiental",
+      title: "Expertos en Estudios de Impacto Ambiental",
+      subtitle:
+        "Evaluamos y mitigamos los impactos ambientales de tus proyectos, garantizando el cumplimiento normativo y la protección del medio ambiente.",
       imageUrl: "/images/hero/peru2.webp",
       buttonText: "Ver Estudios",
       buttonLink: "/servicios#impacto-ambiental",
     },
     {
-      title: "Planificación Urbana",
-      subtitle: "Y Proyectos de Infraestructura",
+      title: "Líderes en Planificación Urbana Estratégica",
+      subtitle:
+        "Diseñamos planes de desarrollo urbano integrales, considerando la infraestructura, el medio ambiente y las necesidades de la comunidad.",
       imageUrl: "/images/hero/peru3.webp",
       buttonText: "Ver Proyectos Urbanos",
       buttonLink: "/proyectos#urbano",
     },
     {
-      title: "Más de 25 Años",
-      subtitle: "De Experiencia en el Sector",
+      title: "Más de 25 Años de Trayectoria",
+      subtitle:
+        "Nuestra experiencia y conocimiento técnico nos avalan como una empresa confiable y líder en el sector de la consultoría ambiental y urbana.",
       imageUrl: "/images/hero/peru4.webp",
       buttonText: "Conózcanos",
       buttonLink: "/nosotros",
     },
     {
-      title: "Consultoría Integral",
-      subtitle: "Para un Futuro Sostenible",
+      title: "Consultoría Integral para un Futuro Mejor",
+      subtitle:
+        "Ofrecemos soluciones personalizadas y eficientes para cada proyecto, desde la concepción hasta la ejecución, promoviendo la sostenibilidad.",
       imageUrl: "/images/hero/peru5.webp",
       buttonText: "Contáctenos",
       buttonLink: "/contacto",
@@ -78,11 +83,11 @@ export function Hero() {
               <div className="absolute inset-0 bg-black/30" />
             </div>
 
-            <div className="relative z-10 pt-10 flex flex-col items-center justify-center px-4 text-center h-full">
-              <h1 className="text-shadow-lg text-3xl font-bold text-white sm:text-4xl md:text-5xl lg:text-6xl capitalize">
+            <div className="relative z-10 pt-10 flex flex-col items-center justify-center px-48 text-center h-full font-play">
+              <h1 className="text-shadow-lg text-2xl font-bold text-white sm:text-3xl md:text-4xl lg:text-5xl capitalize">
                 {slide.title}
               </h1>
-              <h2 className="text-shadow-md text-xl text-white sm:text-2xl md:text-3xl mt-2">
+              <h2 className="text-shadow-md text-lg text-white sm:text-xl md:text-2xl mt-2">
                 {slide.subtitle}
               </h2>
               <div className="mt-8">

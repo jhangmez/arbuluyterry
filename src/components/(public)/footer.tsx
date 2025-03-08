@@ -35,11 +35,11 @@ export function Footer({ color }: FooterProps) {
       style={typeof footerBgClass === "object" ? footerBgClass : undefined}
     >
       <div className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4 font-cuerpo">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4 font-play">
           <div>
             <Link
               href="/"
-              className="text-2xl font-bold font-titulo flex-row flex items-center  gap-2"
+              className="text-2xl font-bold font-play flex-row flex items-center  gap-2"
             >
               <Image
                 src="/images/arbuluyterry.webp"
@@ -65,7 +65,7 @@ export function Footer({ color }: FooterProps) {
 
           {/* Sección "Páginas" -  Estructura Principal */}
           <div>
-            <h3 className="text-lg font-semibold font-titulo select-none text-amarillo">
+            <h3 className="text-lg font-semibold font-play select-none text-amarillo">
               Páginas
             </h3>
             <ul className="mt-4 space-y-2">
@@ -84,7 +84,7 @@ export function Footer({ color }: FooterProps) {
 
           {/* Sección "Servicios" -  Submenú */}
           <div>
-            <h3 className="text-lg font-semibold font-titulo select-none text-amarillo">
+            <h3 className="text-lg font-semibold font-play select-none text-amarillo">
               Servicios
             </h3>
             <ul className="mt-4 space-y-2">
@@ -105,7 +105,7 @@ export function Footer({ color }: FooterProps) {
 
           {/* Sección Contacto */}
           <div>
-            <h3 className="text-lg font-semibold font-titulo select-none text-amarillo">
+            <h3 className="text-lg font-semibold font-play select-none text-amarillo">
               Contacto
             </h3>
             <ul className="mt-4 space-y-2">
@@ -132,7 +132,7 @@ export function Footer({ color }: FooterProps) {
         </div>
 
         <div className="mt-8 border-t border-primary-foreground/20 pt-8">
-          <p className="text-center text-xs font-cuerpo">
+          <p className="text-center text-xs font-play">
             © 2025 Arbulú & Terry S.A.C Perú. Todos los derechos reservados.
           </p>
         </div>

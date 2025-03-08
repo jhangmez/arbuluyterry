@@ -55,8 +55,7 @@ const config: Config = {
         },
       },
       fontFamily: {
-        titulo: ['var(--font-titulo)'],
-        cuerpo: ['var(--font-cuerpo)'],
+        play: ['var(--font-play)'],
       },
       borderRadius: {
         lg: 'var(--radius)',

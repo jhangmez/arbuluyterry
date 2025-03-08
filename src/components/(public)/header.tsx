@@ -212,7 +212,7 @@ function BottomHeader() {
                       <div className="flex items-center justify-start gap-2">
                         <Button
                           variant="ghost"
-                          className="text-lg font-medium font-titulo text-left p-0"
+                          className="text-lg font-medium font-play text-left p-0"
                           onClick={() =>
                             setOpenSubMenu(
                               openSubMenu === item.name ? null : item.name
@@ -229,7 +229,7 @@ function BottomHeader() {
                             <Link
                               key={`${index}-${subIndex}-${subItem.name}`}
                               href={subItem.href}
-                              className="block text-base font-medium font-titulo"
+                              className="block text-base font-medium font-play"
                             >
                               {subItem.name}
                             </Link>
@@ -240,7 +240,7 @@ function BottomHeader() {
                   ) : (
                     <Link
                       href={item.href}
-                      className="text-lg font-medium font-titulo"
+                      className="text-lg font-medium font-play"
                     >
                       {item.name}
                     </Link>
@@ -251,7 +251,7 @@ function BottomHeader() {
               <Link
                 target="_blank"
                 href="https://wa.me/+51979949008"
-                className="text-lg font-medium font-titulo"
+                className="text-lg font-medium font-play"
               >
                 Contáctanos
               </Link>
@@ -279,7 +279,7 @@ export function Header() {
   }, []);
   return (
     <header
-      className={`absolute top-0 z-50 w-full bg-gradient-to-t from-transparent to-primary/15  font-titulo`}
+      className={`absolute top-0 z-50 w-full bg-gradient-to-t from-transparent to-primary/15  font-play`}
     >
       <TopBar isScrolled={isScrolled} />
       <BottomHeader />
