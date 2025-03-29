@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { apiImage } from "@/utils/imageapi";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -54,7 +55,7 @@ const TeamSection: React.FC<TeamSectionProps> = ({
             >
               <div className="relative w-48 h-48 mb-4">
                 <Image
-                  src={member.imageUrl}
+                  src={apiImage(member.imageUrl) ?? "user.webp"}
                   alt={member.name}
                   fill
                   className="object-cover rounded-full"

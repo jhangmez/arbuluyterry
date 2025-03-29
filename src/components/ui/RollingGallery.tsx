@@ -10,45 +10,40 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 
-interface ImageItem {
-  url: string;
-  link: string;
-}
-
 const IMGS: ImageItem[] = [
   {
     url: "/images/BANCOINTERAMERICANODEFINANZAS-BANBIF-CHICLAYO.webp",
-    link: "/projects/banbif",
+    link: "/proyectos/banbif-chiclayo",
   },
   {
     url: "/images/CLUBSOCIALANCASHYEDIFICIODEOFICINAS-JESUSMARIA-LIMA.webp",
-    link: "/projects/club-social",
+    link: "/proyectos/club-social",
   },
   {
     url: "/images/DECLARACIONDEIMPACTOAMBIENTALDELAPTARDELCAMPAMENTOOCCIDENTEDELPROYECTOTRASVASEOLMOS.webp",
-    link: "/projects/olmos-occidente",
+    link: "/proyectos/olmos-occidente",
   },
   {
     url: "/images/DECLARACIONDEIMPACTOAMBIENTALDELAPTARDELCAMPAMENTOORIENTEDELPROYECTOTRASVASEOLMOS.webp",
-    link: "/projects/olmos-oriente",
+    link: "/proyectos/olmos-oriente",
   },
   {
     url: "/images/EDIFICIODEOFICINASSANTAVICTORIA-CHICLAYO.webp",
-    link: "/projects/santa-victoria",
+    link: "/proyectos/santa-victoria",
   },
   {
     url: "/images/EDIFICIOEMPRESARIALSAN-PEDRO-CHICLAYO.webp",
-    link: "/projects/san-pedro",
+    link: "/proyectos/san-pedro",
   },
   {
     url: "/images/EstudiodeImpactoAmbientaldeRedesdeAguaPotableydeAlcantarilladodelaCiudaddeFerreñafe.webp",
-    link: "/projects/ferrenafe",
+    link: "/proyectos/ferrenafe",
   },
   {
     url: "/images/EstudiodeImpactoAmbientaldeRedesdeAguaPotableydeAlcantarilladodelaCiudaddeLambayeque.webp",
-    link: "/projects/lambayeque",
+    link: "/proyectos/lambayeque",
   },
-  { url: "/images/HOTELOLMOS-LAMBAYEQUE.webp", link: "/projects/hotel-olmos" },
+  { url: "/images/HOTELOLMOS-LAMBAYEQUE.webp", link: "/proyectos/hotel-olmos" },
 ];
 
 interface RollingGalleryProps {
