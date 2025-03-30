@@ -7,6 +7,7 @@ import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { apiImage } from "@/utils/imageapi"; // Assuming this utility exists
+import { cn } from "@/lib/utils"; // Import cn for conditional classes
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -30,37 +31,41 @@ const TeamSection: React.FC<TeamSectionProps> = ({
   showButton = false,
 }) => {
   const membersToDisplay = teamMembers.slice(0, maxMembersToShow);
+  const isExactlyTwoMembers = membersToDisplay.length === 2;
 
-  // Determine the grid layout based on the number of members to display.
-  // Keep your existing logic for gridColsClass
-  let gridColsClass = "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"; // Default or calculated
+  // Define clases base para el contenedor
+  const containerBaseClasses = "gap-8";
+
+  // Define clases condicionales para el layout
+  const layoutClasses = isExactlyTwoMembers
+    ? "flex flex-wrap justify-center items-start" // Usa Flexbox para centrar si son 2
+    : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-items-center"; // Usa Grid si son 1 o más de 2
 
   return (
     <section className="py-6">
       <div className="container mx-auto px-4">
-        <div className={`grid ${gridColsClass} gap-8 justify-items-center`}>
+        {/* Aplica las clases de layout dinámicamente */}
+        <div className={cn(containerBaseClasses, layoutClasses)}>
           {membersToDisplay.map((member, index) => (
             <div
               key={index}
-              className="flex flex-col items-center w-full max-w-xs font-play" // Added font-play
+              // Ajusta el ancho máximo para que quepan bien en flex/grid
+              className="flex flex-col items-center w-full max-w-sm md:max-w-xs font-play"
             >
-              {/* Parent div MUST have position: relative for fill to work correctly */}
               <div className="relative w-48 h-48 mb-4">
                 <Image
-                  // Use your apiImage utility or directly the src
                   src={
                     apiImage
                       ? apiImage(member.imageUrl)
                       : member.imageUrl ?? "/images/user.webp"
-                  } // Added fallback placeholder
+                  }
                   alt={member.name}
                   fill
-                  // Add the sizes prop here
-                  sizes="192px" // Corresponds to w-48 (12rem * 16px/rem = 192px)
+                  sizes="192px" // w-48
                   className="object-cover rounded-full"
                   style={{ objectFit: "cover" }}
-                  priority={false} // Set priority=true only for above-the-fold images
-                  quality={75} // Default quality
+                  priority={false}
+                  quality={75}
                 />
               </div>
               <div className="text-center">
@@ -71,13 +76,14 @@ const TeamSection: React.FC<TeamSectionProps> = ({
             </div>
           ))}
         </div>
-        {showButton && (
-          <div className="mt-8 text-center">
-            <Button asChild className="font-play">
-              <Link href="/equipo">Ver Más</Link>
-            </Button>
-          </div>
-        )}
+        {showButton && // Asegúrate que showButton funcione con la lógica de miembros > maxMembersToShow
+          teamMembers.length > maxMembersToShow && (
+            <div className="mt-8 text-center">
+              <Button asChild className="font-play">
+                <Link href="/equipo">Ver Más</Link>
+              </Button>
+            </div>
+          )}
       </div>
     </section>
   );
