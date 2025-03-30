@@ -9,7 +9,13 @@ const nextConfig = {
         hostname: 'utfs.io',
         port: '',
         pathname: '/f/**'
-      }
+      },
+      {
+        protocol: 'https',
+        hostname: 'vrf137hlqv.ufs.sh',
+        port: '',
+        pathname: '/f/**'
+      },
     ]
   }
 };

@@ -6,10 +6,11 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { apiImage } from "@/utils/imageapi";
+import { apiImage } from "@/utils/imageapi"; // Assuming this utility exists
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Define TeamMember interface if not already defined globally or imported
 interface TeamMember {
   name: string;
   title: string;
@@ -31,35 +32,35 @@ const TeamSection: React.FC<TeamSectionProps> = ({
   const membersToDisplay = teamMembers.slice(0, maxMembersToShow);
 
   // Determine the grid layout based on the number of members to display.
-  let gridColsClass = "";
-  if (membersToDisplay.length === 1) {
-    gridColsClass = "grid-cols-1"; // 1 column for 1 member
-  } else if (membersToDisplay.length === 2) {
-    gridColsClass = "sm:grid-cols-2"; // 2 columns for 2 members (on small screens and up)
-  } else {
-    gridColsClass = "sm:grid-cols-2 lg:grid-cols-3"; // Up to 3 columns (2 on small, 3 on large)
-  }
+  // Keep your existing logic for gridColsClass
+  let gridColsClass = "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"; // Default or calculated
 
   return (
     <section className="py-6">
       <div className="container mx-auto px-4">
-        {" "}
-        {/* Added px-4 for horizontal padding */}
-        <div
-          className={`grid ${gridColsClass} gap-8 justify-items-center`} // Added justify-items-center
-        >
+        <div className={`grid ${gridColsClass} gap-8 justify-items-center`}>
           {membersToDisplay.map((member, index) => (
             <div
               key={index}
-              className="flex flex-col items-center w-full max-w-xs font-play"
+              className="flex flex-col items-center w-full max-w-xs font-play" // Added font-play
             >
+              {/* Parent div MUST have position: relative for fill to work correctly */}
               <div className="relative w-48 h-48 mb-4">
                 <Image
-                  src={apiImage(member.imageUrl) ?? "user.webp"}
+                  // Use your apiImage utility or directly the src
+                  src={
+                    apiImage
+                      ? apiImage(member.imageUrl)
+                      : member.imageUrl ?? "/images/user.webp"
+                  } // Added fallback placeholder
                   alt={member.name}
                   fill
+                  // Add the sizes prop here
+                  sizes="192px" // Corresponds to w-48 (12rem * 16px/rem = 192px)
                   className="object-cover rounded-full"
                   style={{ objectFit: "cover" }}
+                  priority={false} // Set priority=true only for above-the-fold images
+                  quality={75} // Default quality
                 />
               </div>
               <div className="text-center">

@@ -289,8 +289,8 @@ export function Header({ relative = true }: { relative?: boolean }) {
   }, []);
   return (
     <header
-      className={`z-50 w-full bg-gradient-to-t from-transparent to-primary/35 font-play ${
-        relative ? "" : "absolute top-0"
+      className={`z-50 w-full bg-gradient-to-t from-transparent to-primary/35 font-play  ${
+        relative ? "" : "absolute top-0 "
       }`}
     >
       <TopBar isScrolled={isScrolled} />

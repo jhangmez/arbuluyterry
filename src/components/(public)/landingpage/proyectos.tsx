@@ -1,5 +1,6 @@
 "use client";
 import RollingGallery from "@/components/ui/RollingGallery";
+import UnderlinedHeading from "../UnderlinedHeading";
 
 export function ProyectosSection() {
   return (

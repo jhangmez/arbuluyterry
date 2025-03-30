@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { FaWhatsapp } from "react-icons/fa";
+import CopyToClipboard from "../CopyToClipboard";
 
 const CtaSection = () => {
   return (
@@ -41,27 +42,52 @@ const CtaSection = () => {
 
             <div className="mt-8">
               <p className="text-lg">
-                <strong>Teléfono:</strong> 074-452282
+                <strong>Teléfono:</strong>{" "}
+                <CopyToClipboard
+                  mensaje="Teléfono copiado"
+                  elementToCopy="074452282"
+                >
+                  074-452282
+                </CopyToClipboard>
               </p>
               <p className="text-lg">
-                <strong>Celular:</strong> 979955944, 979949008
+                <strong>Celular:</strong>{" "}
+                <CopyToClipboard
+                  mensaje="Celular copiado"
+                  elementToCopy="979955944"
+                >
+                  979955944
+                </CopyToClipboard>
+                ,{" "}
+                <CopyToClipboard
+                  mensaje="Celular copiado"
+                  elementToCopy="979949008"
+                >
+                  979949008
+                </CopyToClipboard>
               </p>
               <p className="text-lg">
                 <strong>Email:</strong>{" "}
-                <a href="mailto:eprach@yahoo.com" className="hover:underline">
-                  eprach@yahoo.com
-                </a>
+                <CopyToClipboard mensaje="Email copiado">
+                  <a href="mailto:eprach@yahoo.com" className="hover:underline">
+                    eprach@yahoo.com
+                  </a>
+                </CopyToClipboard>
                 ,{" "}
-                <a
-                  href="mailto:mterryra@hotmail.com"
-                  className="hover:underline"
-                >
-                  mterryra@hotmail.com
-                </a>
+                <CopyToClipboard mensaje="Email copiado">
+                  <a
+                    href="mailto:mterryra@hotmail.com"
+                    className="hover:underline"
+                  >
+                    mterryra@hotmail.com
+                  </a>
+                </CopyToClipboard>
               </p>
               <p className="text-lg">
-                <strong>Dirección:</strong> Jr. Tacna 575 Chiclayo, Lambayeque,
-                Perú.
+                <strong>Dirección:</strong>{" "}
+                <CopyToClipboard mensaje="Dirección copiada">
+                  Jr. Tacna 575 Chiclayo, Lambayeque, Perú.
+                </CopyToClipboard>
               </p>
               <p className="pt-2">
                 <Link
