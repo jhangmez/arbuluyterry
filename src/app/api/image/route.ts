@@ -4,7 +4,8 @@ import sharp from 'sharp';
 import path from 'path';
 import fs from 'fs/promises';
 
-// --- Helper para obtener la imagen por defecto ---
+export const runtime = 'edge';
+
 async function getDefaultImageResponse(): Promise<NextResponse> {
   try {
     const defaultImagePath = path.join(process.cwd(), 'public', 'images', 'user.webp');
