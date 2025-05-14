@@ -1,21 +1,28 @@
 import { Header } from "@/components/(public)/header";
 import { Footer } from "@/components/(public)/footer";
 import { WhatsAppButton } from "@/components/(public)/landingpage/whatsapp-button";
-import Image from "next/image"; // Import Image if you want to add one
+import UnderlinedHeading from "@/components/(public)/UnderlinedHeading"; // Importar el componente
+import Image from "next/image";
 
 export default function Nosotros() {
   return (
     <section className="flex min-h-screen flex-col font-play">
-      {" "}
-      {/* Aplicar font-play globalmente aquí */}
       <Header />
       <main className="flex-1">
         {/* Sección: Nuestra organización */}
-        <section className="py-10 md:py-16">
-          <h2 className="w-full py-6 md:py-8 bg-crema text-center font-semibold text-2xl md:text-3xl lg:text-4xl text-gray-800">
-            Nuestra Organización
-          </h2>
-          <div className="container mx-auto px-4 mt-8 md:mt-12">
+        <section className="py-12 md:py-16">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-10 md:mb-14">
+              {" "}
+              {/* Div para centrar y dar margen inferior al título */}
+              <UnderlinedHeading
+                as="h2"
+                className="text-3xl md:text-4xl font-semibold text-gray-800"
+                paddingBottom="pb-3 md:pb-4" // Espacio entre texto, línea y contenido
+              >
+                Nuestra Organización
+              </UnderlinedHeading>
+            </div>
             <div className="max-w-3xl mx-auto text-lg text-gray-700 space-y-6">
               <p>
                 Arbulú & Terry SAC, es una empresa dedicada a la actividad de la
@@ -32,32 +39,37 @@ export default function Nosotros() {
                 eficiente en todo el servicio encomendado.
               </p>
             </div>
-            {/* Opcional: Podrías añadir una imagen aquí si lo deseas */}
-            {/* <div className="mt-8 md:mt-12 flex justify-center">
+            {/* Opcional: Imagen de la organización
+            <div className="mt-10 md:mt-14 flex justify-center">
               <Image
-                src="/images/team-photo.webp" // Reemplaza con una imagen relevante
+                src="/images/office-team.webp" // Reemplaza con una imagen relevante
                 alt="Equipo de Arbulú & Terry SAC"
-                width={600}
-                height={400}
-                className="rounded-lg shadow-lg object-cover"
+                width={700}
+                height={450}
+                className="rounded-lg shadow-xl object-cover"
               />
-            </div> */}
+            </div>
+            */}
           </div>
         </section>
 
         {/* Sección: Misión y Visión */}
-        <section className="py-10 md:py-16 bg-gray-50">
+        <section className="py-12 md:py-16 bg-gray-50">
           {" "}
-          {/* Fondo sutil para diferenciar */}
-          <h2 className="w-full py-6 md:py-8 bg-crema text-center font-semibold text-2xl md:text-3xl lg:text-4xl text-gray-800">
-            Misión y Visión
-          </h2>
-          <div className="container mx-auto px-4 mt-8 md:mt-12">
-            <div className="max-w-3xl mx-auto space-y-8">
+          {/* Fondo sutil para diferenciar la sección */}
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-10 md:mb-14">
+              <UnderlinedHeading
+                as="h2"
+                className="text-3xl md:text-4xl font-semibold text-gray-800"
+                paddingBottom="pb-3 md:pb-4"
+              >
+                Misión y Visión
+              </UnderlinedHeading>
+            </div>
+            <div className="max-w-3xl mx-auto space-y-10">
               <div>
-                <h3 className="text-xl md:text-2xl font-semibold text-primary mb-3">
-                  {" "}
-                  {/* Asumiendo que 'primary' es tu color azul principal */}
+                <h3 className="text-2xl md:text-3xl font-semibold text-primary mb-4 text-center md:text-left">
                   Misión
                 </h3>
                 <p className="text-lg text-gray-700">
@@ -70,7 +82,7 @@ export default function Nosotros() {
                 </p>
               </div>
               <div>
-                <h3 className="text-xl md:text-2xl font-semibold text-primary mb-3">
+                <h3 className="text-2xl md:text-3xl font-semibold text-primary mb-4 text-center md:text-left">
                   Visión
                 </h3>
                 <p className="text-lg text-gray-700">
@@ -86,13 +98,19 @@ export default function Nosotros() {
         </section>
 
         {/* Sección: Campos en la Actividad */}
-        <section className="py-10 md:py-16">
-          <h2 className="w-full py-6 md:py-8 bg-crema text-center font-semibold text-2xl md:text-3xl lg:text-4xl text-gray-800">
-            Campos en la Actividad
-          </h2>
-          <div className="container mx-auto px-4 mt-8 md:mt-12">
+        <section className="py-12 md:py-16">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-10 md:mb-14">
+              <UnderlinedHeading
+                as="h2"
+                className="text-3xl md:text-4xl font-semibold text-gray-800"
+                paddingBottom="pb-3 md:pb-4"
+              >
+                Campos en la Actividad
+              </UnderlinedHeading>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+              <div className="bg-white p-6 md:p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <h3 className="text-xl md:text-2xl font-semibold text-primary mb-4">
                   URBANISMO
                 </h3>
@@ -102,7 +120,7 @@ export default function Nosotros() {
                   <li>Diseño Urbano.</li>
                 </ul>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+              <div className="bg-white p-6 md:p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <h3 className="text-xl md:text-2xl font-semibold text-primary mb-4">
                   MEDIO AMBIENTE
                 </h3>
