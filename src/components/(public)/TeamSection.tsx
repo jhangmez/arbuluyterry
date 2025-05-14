@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { apiImage } from "@/utils/imageapi"; // Assuming this utility exists
 import { cn } from "@/lib/utils"; // Import cn for conditional classes
 
 gsap.registerPlugin(ScrollTrigger);
@@ -54,11 +53,7 @@ const TeamSection: React.FC<TeamSectionProps> = ({
             >
               <div className="relative w-48 h-48 mb-4">
                 <Image
-                  src={
-                    apiImage
-                      ? apiImage(member.imageUrl)
-                      : member.imageUrl ?? "/images/user.webp"
-                  }
+                  src={member.imageUrl ?? "/images/user.webp"}
                   alt={member.name}
                   fill
                   sizes="192px" // w-48
