@@ -17,31 +17,31 @@ const IMGS: ImageItem[] = [
   },
   {
     url: "/images/CLUBSOCIALANCASHYEDIFICIODEOFICINAS-JESUSMARIA-LIMA.webp",
-    link: "/proyectos/club-social",
+    link: "/proyectos/club-social-ancash",
   },
   {
     url: "/images/DECLARACIONDEIMPACTOAMBIENTALDELAPTARDELCAMPAMENTOOCCIDENTEDELPROYECTOTRASVASEOLMOS.webp",
-    link: "/proyectos/olmos-occidente",
+    link: "/proyectos/dia-olmos-occidente",
   },
   {
     url: "/images/DECLARACIONDEIMPACTOAMBIENTALDELAPTARDELCAMPAMENTOORIENTEDELPROYECTOTRASVASEOLMOS.webp",
-    link: "/proyectos/olmos-oriente",
+    link: "/proyectos/pma-olmos-oriente",
   },
   {
     url: "/images/EDIFICIODEOFICINASSANTAVICTORIA-CHICLAYO.webp",
-    link: "/proyectos/santa-victoria",
+    link: "/proyectos/edificio-santa-victoria",
   },
   {
     url: "/images/EDIFICIOEMPRESARIALSAN-PEDRO-CHICLAYO.webp",
-    link: "/proyectos/san-pedro",
+    link: "/proyectos/edificio-san-pedro",
   },
   {
     url: "/images/EstudiodeImpactoAmbientaldeRedesdeAguaPotableydeAlcantarilladodelaCiudaddeFerreñafe.webp",
-    link: "/proyectos/ferrenafe",
+    link: "/proyectos/eiasd-agua-ferrenafe",
   },
   {
     url: "/images/EstudiodeImpactoAmbientaldeRedesdeAguaPotableydeAlcantarilladodelaCiudaddeLambayeque.webp",
-    link: "/proyectos/lambayeque",
+    link: "/proyectos/eiasd-agua-lambayeque",
   },
   { url: "/images/HOTELOLMOS-LAMBAYEQUE.webp", link: "/proyectos/hotel-olmos" },
 ];
