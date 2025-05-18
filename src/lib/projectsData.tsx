@@ -211,7 +211,7 @@ export const projectsList: ProjectDetail[] = [
     id: "eiasd-agua-ferrenafe",
     title: "EIA-sd Sistemas de Agua Potable y Alcantarillado Ferreñafe",
     mainImage:
-      "/images/EstudiodeImpactoAmbientaldeRedesdeAguaPotableydeAlcantarilladodelaCiudaddeFerreñafe.webp",
+      "/images/EstudiodeImpactoAmbientaldeRedesdeAguaPotableydeAlcantarilladodelaCiudaddeFerrenafe.webp",
     description:
       'Estudio de Impacto Ambiental Semidetallado (EIA-sd) del proyecto "Mejoramiento y Ampliación Integral de los Sistemas de Agua Potable y Alcantarillado de la Localidad de Ferreñafe, Provincia de Ferreñafe".',
     location: "Ferreñafe, Lambayeque, Perú",
