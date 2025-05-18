@@ -2,8 +2,9 @@ import { Header } from "@/components/(public)/header";
 import { Footer } from "@/components/(public)/footer";
 import { WhatsAppButton } from "@/components/(public)/landingpage/whatsapp-button";
 import UnderlinedHeading from "@/components/(public)/UnderlinedHeading"; // Importar el componente
-import Image from "next/image";
-
+import Link from "next/link";
+import { FaCity, FaLeaf, FaArrowRight } from "react-icons/fa";
+import { Button } from "@/components/ui/button";
 export default function Nosotros() {
   return (
     <section className="flex min-h-screen flex-col font-play">
@@ -98,7 +99,9 @@ export default function Nosotros() {
         </section>
 
         {/* Sección: Campos en la Actividad */}
-        <section className="py-12 md:py-16">
+        <section className="py-12 md:py-16 bg-gray-100">
+          {" "}
+          {/* Un fondo diferente para destacar */}
           <div className="container mx-auto px-4">
             <div className="text-center mb-10 md:mb-14">
               <UnderlinedHeading
@@ -106,34 +109,73 @@ export default function Nosotros() {
                 className="text-3xl md:text-4xl font-semibold text-gray-800"
                 paddingBottom="pb-3 md:pb-4"
               >
-                Campos en la Actividad
+                Nuestras Áreas de Especialización {/* Título más descriptivo */}
               </UnderlinedHeading>
+              <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+                Ofrecemos una gama completa de servicios de consultoría en
+                urbanismo y medio ambiente, aplicando nuestra experiencia para
+                lograr resultados sostenibles y de alto impacto.
+              </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-              <div className="bg-white p-6 md:p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <h3 className="text-xl md:text-2xl font-semibold text-primary mb-4">
-                  URBANISMO
+              {/* Tarjeta para Urbanismo */}
+              <div className="flex flex-col bg-white rounded-xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl group text-center p-6 md:p-8 items-center">
+                <div className="p-4 bg-primary/10 rounded-full mb-4">
+                  <FaCity className="w-12 h-12 text-primary" />
+                </div>
+                <h3 className="text-2xl font-semibold text-primary mb-3">
+                  Urbanismo y Desarrollo Territorial
                 </h3>
-                <ul className="list-disc pl-5 space-y-2 text-lg text-gray-700">
-                  <li>Proyectos de Infraestructura Urbana.</li>
-                  <li>Planes de Desarrollo Urbano.</li>
-                  <li>Diseño Urbano.</li>
+                <p className="text-gray-600 mb-6 text-base leading-relaxed flex-grow">
+                  Desde la planificación estratégica hasta el diseño detallado
+                  de proyectos, transformamos espacios para crear comunidades
+                  prósperas y sostenibles.
+                </p>
+                <ul className="text-left list-disc pl-5 space-y-1 text-sm text-gray-500 mb-6 w-full max-w-xs">
+                  <li>Planes de Desarrollo Urbano</li>
+                  <li>Proyectos de Infraestructura</li>
+                  <li>Diseño Urbano y Habilitaciones</li>
+                  {/* Puedes agregar más si es conciso */}
                 </ul>
+                <Button
+                  asChild
+                  variant="outline"
+                  className="mt-auto group-hover:bg-primary group-hover:text-white transition-colors"
+                >
+                  <Link href="/servicios/urbanismo">
+                    Conocer Más <FaArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
               </div>
-              <div className="bg-white p-6 md:p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <h3 className="text-xl md:text-2xl font-semibold text-primary mb-4">
-                  MEDIO AMBIENTE
+
+              {/* Tarjeta para Medio Ambiente */}
+              <div className="flex flex-col bg-white rounded-xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl group text-center p-6 md:p-8 items-center">
+                <div className="p-4 bg-green-600/10 rounded-full mb-4">
+                  <FaLeaf className="w-12 h-12 text-green-600" />
+                </div>
+                <h3 className="text-2xl font-semibold text-green-700 mb-3">
+                  Consultoría Ambiental
                 </h3>
-                <ul className="list-disc pl-5 space-y-2 text-lg text-gray-700">
-                  <li>Estudios de Impacto Ambiental.</li>
-                  <li>Evaluaciones Ambientales.</li>
-                  <li>Estudios de Línea Base.</li>
-                  <li>Programas de Adecuación Ambiental.</li>
-                  <li>Estudios de Saneamiento Ambiental.</li>
-                  <li>Estudios de Gestión Ambiental.</li>
-                  <li>Estudios de Impacto Vial.</li>
-                  <li>Evaluaciones de Impacto Social.</li>
+                <p className="text-gray-600 mb-6 text-base leading-relaxed flex-grow">
+                  Brindamos soluciones expertas para la gestión ambiental,
+                  asegurando la viabilidad de sus proyectos y el cumplimiento
+                  normativo.
+                </p>
+                <ul className="text-left list-disc pl-5 space-y-1 text-sm text-gray-500 mb-6 w-full max-w-xs">
+                  <li>Estudios de Impacto Ambiental</li>
+                  <li>Planes de Manejo (PAMA)</li>
+                  <li>Evaluaciones y Monitoreo</li>
+                  {/* Puedes agregar más si es conciso */}
                 </ul>
+                <Button
+                  asChild
+                  variant="outline"
+                  className="mt-auto group-hover:bg-green-600 group-hover:text-white transition-colors"
+                >
+                  <Link href="/servicios/medio-ambiente">
+                    Conocer Más <FaArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
               </div>
             </div>
           </div>

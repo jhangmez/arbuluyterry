@@ -1,4 +1,10 @@
-// lib/projectsData.ts o app/data/projectsData.ts
+import {
+  BAGUA_AGUA_IMG,
+  MOTUPE_CEMENTERIO_IMG,
+  MOTUPE_HOSPITAL_IMG,
+  VICTORIA_DRENAJE_IMG,
+} from "@/app/routes";
+
 export interface ProjectDetail {
   id: string;
   title: string;
@@ -156,8 +162,7 @@ export const projectsList: ProjectDetail[] = [
   {
     id: "eiasd-salud-motupe",
     title: "EIA-sd Mejoramiento Servicios de Salud Motupe",
-    mainImage:
-      "/images/Consultorías en Medio Ambiente/Estudio de Impacto Ambiental Semidetallado EIAsd del PROYECTO “MEJORAMIENTO DE LOS SERVICIOS DE SALUD DEL ESTABLECIMIENTO DE SALUD MOTUPE, DISTRITO DE MOTUPE, PROVINCIA DE LAMBAYEQUE, DEPARTAMENTO DE LAMBAYEQUE” (2020).webp",
+    mainImage: MOTUPE_HOSPITAL_IMG,
     description:
       "Estudio de Impacto Ambiental Semidetallado (EIA-sd) para el proyecto de “Mejoramiento de los Servicios de Salud del Establecimiento de Salud Motupe”, incluyendo el Estudio de Impacto Vial correspondiente.",
     location: "Motupe, Lambayeque, Perú",
@@ -171,8 +176,7 @@ export const projectsList: ProjectDetail[] = [
   {
     id: "pama-cementerio-motupe",
     title: "PAMA Creación del Cementerio Público Motupe",
-    mainImage:
-      "/images/Consultorías en Medio Ambiente/Programa de Adecuación Medio Ambiental (PAMA) del PROYECTO “CREACION DEL CEMENTERIO PUBLICO“SEÑOR DE LA RESURRECCIÓN”SOCIEDAD DE BENEFICENCIA PÚBLICA DE MOTUPE. (2018).webp",
+    mainImage: MOTUPE_CEMENTERIO_IMG,
     description:
       "Programa de Adecuación Medio Ambiental (PAMA) para el proyecto de “Creación del Cementerio Público Señor de la Resurrección” de la Sociedad de Beneficencia Pública de Motupe.",
     location: "Motupe, Lambayeque, Perú",
@@ -183,8 +187,7 @@ export const projectsList: ProjectDetail[] = [
   {
     id: "eiasd-drenaje-victoria",
     title: "EIA-sd Instalación Sistema de Drenaje Pluvial La Victoria",
-    mainImage:
-      "/images/Consultorías en Medio Ambiente/Estudio de Impacto Ambiental Semidetallado (EIA-sd) del PROYECTO INSTALACIÓN DEL SISTEMA DE DRENAJE PLUVIAL URBANO EN LA CIUDAD DE LA VICTORIA, CHICLAYO - LAMBAYEQUE. (2014).webp",
+    mainImage: VICTORIA_DRENAJE_IMG,
     description:
       'Estudio de Impacto Ambiental Semidetallado (EIA-sd) para el proyecto de "Instalación del Sistema de Drenaje Pluvial Urbano en la ciudad de La Victoria, Chiclayo - Lambayeque".',
     location: "La Victoria, Chiclayo, Lambayeque, Perú",
@@ -219,8 +222,7 @@ export const projectsList: ProjectDetail[] = [
   {
     id: "eiasd-agua-lambayeque",
     title: "EIA-sd Sistemas de Agua Potable y Alcantarillado Lambayeque",
-    mainImage:
-      "/images/EstudiodeImpactoAmbientaldeRedesdeAguaPotableydeAlcantarilladodelaCiudaddeLambayeque.webp",
+    mainImage: VICTORIA_DRENAJE_IMG,
     description:
       'Estudio de Impacto Ambiental Semidetallado (EIA-sd) del proyecto "Mejoramiento y Ampliación Integral de los Sistemas de Agua Potable y Alcantarillado de la Localidad de Lambayeque, Provincia de Lambayeque".',
     location: "Lambayeque, Lambayeque, Perú",
@@ -231,8 +233,7 @@ export const projectsList: ProjectDetail[] = [
   {
     id: "obs-digesa-agua-bagua",
     title: "Levantamiento Observaciones DIGESA Agua Potable Bagua",
-    mainImage:
-      "/images/Consultorías en Medio Ambiente/Levantamiento de Observaciones de DIGESA al Estudio de Impacto Ambiental del PROYECTO INTEGRADO DEL SISTEMA DE AGUA POTABLE Y ALCANTARILLADO DE LA LOCALIDAD DE BAGUA. (2011).webp",
+    mainImage: BAGUA_AGUA_IMG,
     description:
       "Levantamiento de Observaciones de DIGESA al Estudio de Impacto Ambiental del Proyecto Integrado del Sistema de Agua Potable y Alcantarillado de la Localidad de Bagua.",
     location: "Bagua, Amazonas, Perú",

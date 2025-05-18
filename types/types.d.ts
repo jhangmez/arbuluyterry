@@ -14,9 +14,15 @@ interface TeamMember {
   }
   
   type ImageItem = {
-    url: string;
+    src: string;
     link: string;
   };
+
+interface ImageItem {
+  url: string;
+  link: string;
+  title?: string;
+}
 
   interface Project {
     id: string;

@@ -54,7 +54,7 @@ export default function ProjectPage({ params }: { params: ProjectPageParams }) {
   const otherProjectsForGallery = projectsList
     .filter((p) => p.id !== project.id)
     .slice(0, 8) // Mostrar hasta 8 otros proyectos
-    .map((p) => ({ url: p.mainImage, link: `/proyectos/${p.id}` }));
+    .map((p) => ({ src: p.mainImage, link: `/proyectos/${p.id}` }));
 
   return (
     <div className="flex min-h-screen flex-col font-play">

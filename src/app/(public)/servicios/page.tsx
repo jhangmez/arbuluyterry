@@ -59,7 +59,7 @@ export default function ServiciosPage() {
         <section className="relative py-24 md:py-32 bg-gray-800 text-white">
           <div className="absolute inset-0">
             <Image
-              src="/images/servicios/banner-general.webp" // Banner general atractivo
+              src="/images/EDIFICIOEMPRESARIALSAN-PEDRO-CHICLAYO.webp" // Banner general atractivo
               alt="Servicios Integrales Arbulú & Terry SAC"
               fill
               className="object-cover opacity-25"

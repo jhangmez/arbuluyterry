@@ -12,38 +12,38 @@ import Link from "next/link";
 
 const IMGS: ImageItem[] = [
   {
-    url: "/images/BANCOINTERAMERICANODEFINANZAS-BANBIF-CHICLAYO.webp",
+    src: "/images/BANCOINTERAMERICANODEFINANZAS-BANBIF-CHICLAYO.webp",
     link: "/proyectos/banbif-chiclayo",
   },
   {
-    url: "/images/CLUBSOCIALANCASHYEDIFICIODEOFICINAS-JESUSMARIA-LIMA.webp",
+    src: "/images/CLUBSOCIALANCASHYEDIFICIODEOFICINAS-JESUSMARIA-LIMA.webp",
     link: "/proyectos/club-social-ancash",
   },
   {
-    url: "/images/DECLARACIONDEIMPACTOAMBIENTALDELAPTARDELCAMPAMENTOOCCIDENTEDELPROYECTOTRASVASEOLMOS.webp",
+    src: "/images/DECLARACIONDEIMPACTOAMBIENTALDELAPTARDELCAMPAMENTOOCCIDENTEDELPROYECTOTRASVASEOLMOS.webp",
     link: "/proyectos/dia-olmos-occidente",
   },
   {
-    url: "/images/DECLARACIONDEIMPACTOAMBIENTALDELAPTARDELCAMPAMENTOORIENTEDELPROYECTOTRASVASEOLMOS.webp",
+    src: "/images/DECLARACIONDEIMPACTOAMBIENTALDELAPTARDELCAMPAMENTOORIENTEDELPROYECTOTRASVASEOLMOS.webp",
     link: "/proyectos/pma-olmos-oriente",
   },
   {
-    url: "/images/EDIFICIODEOFICINASSANTAVICTORIA-CHICLAYO.webp",
+    src: "/images/EDIFICIODEOFICINASSANTAVICTORIA-CHICLAYO.webp",
     link: "/proyectos/edificio-santa-victoria",
   },
   {
-    url: "/images/EDIFICIOEMPRESARIALSAN-PEDRO-CHICLAYO.webp",
+    src: "/images/EDIFICIOEMPRESARIALSAN-PEDRO-CHICLAYO.webp",
     link: "/proyectos/edificio-san-pedro",
   },
   {
-    url: "/images/EstudiodeImpactoAmbientaldeRedesdeAguaPotableydeAlcantarilladodelaCiudaddeFerreñafe.webp",
+    src: "/images/EstudiodeImpactoAmbientaldeRedesdeAguaPotableydeAlcantarilladodelaCiudaddeFerreñafe.webp",
     link: "/proyectos/eiasd-agua-ferrenafe",
   },
   {
-    url: "/images/EstudiodeImpactoAmbientaldeRedesdeAguaPotableydeAlcantarilladodelaCiudaddeLambayeque.webp",
+    src: "/images/EstudiodeImpactoAmbientaldeRedesdeAguaPotableydeAlcantarilladodelaCiudaddeLambayeque.webp",
     link: "/proyectos/eiasd-agua-lambayeque",
   },
-  { url: "/images/HOTELOLMOS-LAMBAYEQUE.webp", link: "/proyectos/hotel-olmos" },
+  { src: "/images/HOTELOLMOS-LAMBAYEQUE.webp", link: "/proyectos/hotel-olmos" },
 ];
 
 interface RollingGalleryProps {
@@ -191,7 +191,7 @@ const RollingGallery: React.FC<RollingGalleryProps> = ({
                 <Image
                   width={300}
                   height={120}
-                  src={item.url}
+                  src={item.src}
                   alt="gallery"
                   className="pointer-events-none h-full w-full border-[3px] border-white object-cover transition-transform duration-300 ease-out"
                 />
