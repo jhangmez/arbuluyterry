@@ -75,7 +75,7 @@ export function Footer({ color }: FooterProps) {
             <p className="mt-4 text-sm">Síguenos en nuestras redes sociales:</p>
             <div className="mt-4 flex space-x-4">
               <Link
-                href="https://www.facebook.com/profile.php?id=61570478128979"
+                href="https://www.facebook.com/arbuluyterrysac"
                 className="hover:text-amarillo"
                 target="_blank"
               >

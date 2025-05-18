@@ -64,7 +64,7 @@ function TopBar({ isScrolled }: { isScrolled: boolean }) {
       <div className="container mx-auto flex items-center justify-between">
         <div className="flex items-center">
           <Link
-            href="https://www.facebook.com"
+            href="https://www.facebook.com/arbuluyterrysac"
             target="_blank"
             rel="noopener noreferrer"
           >
